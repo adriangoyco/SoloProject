@@ -2,43 +2,23 @@ import logo from "./logo.svg";
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import './App.css';
 import DisplayAll from "./components/DisplayAll";
+import ListingForm from "./components/ListingForm";
+import View from "./components/View";
 
-import { Header } from './components/header';
-import { Main } from './components/main';
-import { Footer } from './components/footer';
-
-export const App = () => {
+function App() {
   return (
-    <>
-    <Header />
-    <Main />
-    <Footer />
-    </>
+    <BrowserRouter>
+    <h1>Native Market</h1>
+    <Routes>
+      <Route path="/" element={<DisplayAll/>} />
+      <Route path="/view/:id" element={<View/>} />
+      <Route path="/addproduct" element={<ListingForm/>} />
+    </Routes>
+    </BrowserRouter>
+
+
+
   );
-  };
+}
 
 export default App;
-
-
-
-//import logo from "./logo.svg";
-//import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
-//import './App.css';
-//import DisplayAll from "./components/DisplayAll";
-
-//function App() {
-  //return (
-    //<BrowserRouter>
-    //<h1>Native Market</h1>
-    //<Routes>
-      //<Route path="/" element={<DisplayAll/>} />
-    //</Routes>
-    //</BrowserRouter>
-
-
-
-  //);
-//}
-
-//export default App;
-//
