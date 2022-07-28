@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useEffect, useState} from "react";
 import axios from "axios";
 import {Link,} from "react-router-dom";
 
@@ -27,12 +27,14 @@ const handleDelete = (idFromBelow) => {
 
 
     return (
-<table>
+      
+      
+<table style={{textAlign: 'center'}}>
   <thead>
-    <tr>
+    <tr style={{border: '1px solid'}}>
       <th>Image</th>
       <th>Product Name</th>
-      <th>Description</th>
+      <th style={{padding: '30px'}}>Description</th>
       <th>Price</th>
       <th> </th>
     </tr>
@@ -46,8 +48,8 @@ const handleDelete = (idFromBelow) => {
             <td>{element.description}</td>
             <td>{element.price}</td>
             <td>
-                <Link to={`/View/${element._id}`}>View</Link>
-                <button type="button" className="btn btn-light">Edit</button>
+                <Link to={`/product/${element._id}`}>View</Link>
+                <Link to={`/edit/${element._id}`}>Edit</Link>
                 <button type="button" className="btn btn-danger" onClick={() => handleDelete(element._id)}>Remove</button>
             </td>
         </tr>
